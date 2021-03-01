@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FileManagerClass</class>
+ <widget class="QMainWindow" name="FileManagerClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1152</width>
+    <height>1025</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FileManager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTableView" name="FileTable">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="QTableView" name="StatsTable">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="launchButton">
+          <property name="text">
+           <string>Launch</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="killButton">
+          <property name="text">
+           <string>Close First</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1152</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>launchButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FileManagerClass</receiver>
+   <slot>launch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>killButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FileManagerClass</receiver>
+   <slot>kill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>359</x>
+     <y>344</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>launch()</slot>
+  <slot>kill()</slot>
+ </slots>
+</ui>

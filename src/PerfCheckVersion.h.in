@@ -1,0 +1,3 @@
+// Set by CMake
+#define PerfCheck_VERSION_MAJOR @PerfCheck_VERSION_MAJOR@
+#define PerfCheck_VERSION_MINOR @PerfCheck_VERSION_MINOR@
