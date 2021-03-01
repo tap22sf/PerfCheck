@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
                                   << PerfCheck_VERSION_MINOR;
     LogMessage(oss.str());
     
+    LogMessage("Updated");
+
     /*TAPLib::Timer Timer("First");
     for (int i = 0; i < 5; i++) {
 
