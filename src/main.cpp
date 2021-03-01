@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
                                   << PerfCheck_VERSION_MINOR;
     LogMessage(oss.str());
     
-    TAPLib::Timer Timer("First");
+    /*TAPLib::Timer Timer("First");
     for (int i = 0; i < 5; i++) {
 
         float y = 0;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
         LogMessage(Timer.Print());
     }
-
+    */
     LogMessage("App Started.");
     QApplication a(argc, argv);
     FileManager w;
