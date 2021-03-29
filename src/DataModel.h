@@ -56,9 +56,10 @@ private:
     // Raw data
     std::vector<std::shared_ptr<Frame>> frameData;
 
-    // Series data
+    // Offset of sample
+    float dataOffset = 0;
+
+    // Series data - used for graphs
     Series seriesFrameData;
-
-
 };
 

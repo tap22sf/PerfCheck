@@ -38,7 +38,7 @@ list(REMOVE_DUPLICATES PerfCheck_INCLUDE_DIRS)
 
 
 # Build the .exe
-add_executable (PerfCheck ${PerfCheck_SOURCES} ${PerfCheck_UI})
+add_executable (PerfCheck ${PerfCheck_SOURCES} ${PerfCheck_HEADERS} ${PerfCheck_UI})
 
 # Link dependencies
 target_link_libraries (PerfCheck

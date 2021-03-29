@@ -30,14 +30,15 @@ private:
     void addUrls(const QList<QUrl>& urlList);
     void writeSettings();
     void readSettings();
-    void dragEnterEvent(QDragEnterEvent* event);
-    void dropEvent(const QDropEvent* event);
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
 
     void addTestData();
 
 private slots:
     void print_pressed();
     void updateProgress(int newValue);
+    void launch();
     void launchSelected();
     void kill();
 

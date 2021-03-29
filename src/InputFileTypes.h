@@ -24,6 +24,5 @@ public:
     InputFileTypesProcessor(QObject* parent = 0);
     ~InputFileTypesProcessor();
     InputFileTypesProcessor::inputSig parse(
-        const std::string& fileName, std::vector<Row> &rows, std::vector<std::shared_ptr<Frame>>& frames, Series& seriesFrameData);
-
+        const std::string& fileName, std::vector<Row> &rows, std::vector<std::shared_ptr<Frame>>& frames);
 };
