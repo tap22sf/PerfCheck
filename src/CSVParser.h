@@ -10,6 +10,5 @@ public:
     CSVParser();
     ~CSVParser();
 
-    std::vector<Row> parse(const std::string filename, unsigned int length = 0);
-
+    std::vector<Row> parse(const std::string filename);
 };

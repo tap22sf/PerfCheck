@@ -3,6 +3,8 @@
 #include <vector>
 
 #include "TAPLib.h"
+#include "MSG.h"
+
 #include "FileManager.h"
 #include "PerfCheck.h"
 #include "FrameDataModel.h"
@@ -25,10 +27,7 @@ void FileManager::print_pressed() {
 
 void FileManager::addTestData() {
 
-    //fileListModel->addData(R"(C:\Users\TAPHome\Desktop\Test\DataLog - Sep_22_2020_5 - 34 - 52 - PM.csv)", false);
-
-
-
+    fileListModel->addData(R"(C:\Users\TAPHome\Desktop\Particles 2021-03-20 10-17-04-82 frametimes.csv)", false);
 }
 
 
@@ -50,6 +49,13 @@ FileManager::FileManager(QWidget* parent)
     fileTableView = ui.centralwidget->findChild<QTableView*>("FileTable");
     fileTableView->setModel(fileListModel.get());
     fileTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    
+    // Size columns
+    fileTableView->setColumnWidth(0, 600);
+
+    QTextEdit* msgPtr = ui.centralwidget->findChild<QTextEdit*>("msgPanel");
+    myMSG::setMessagePanel(msgPtr);
+
 
     progressBar = ui.centralwidget->findChild<QProgressBar*>("progressBar");
 
@@ -74,7 +80,10 @@ void FileManager::updateProgress(int newValue)
     }
 }
 
-
+void FileManager::launch()
+{
+    launchSelected();
+}
 
 void FileManager::launchSelected()
 {
@@ -103,6 +112,8 @@ void FileManager::kill()
     // Kill oldest
     if (ws.size()) ws.erase(ws.begin());
 }
+
+
 
 // Save and restore settings
 void FileManager::writeSettings()
@@ -154,7 +165,6 @@ void FileManager::addUrls(const QList<QUrl>& urlList)
     }
 
     emit(progressUpdate(0));
-
 }
 
 
@@ -164,7 +174,7 @@ void FileManager::dragEnterEvent(QDragEnterEvent* event) {
         event->acceptProposedAction();
     }
 }
-void  FileManager::dropEvent(const QDropEvent* event) {
+void  FileManager::dropEvent(QDropEvent* event) {
     // Get the drop event info
     addUrls(event->mimeData()->urls());
 }

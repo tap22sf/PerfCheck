@@ -77,7 +77,7 @@ QVariant FrameDataModel::headerData(int section, Qt::Orientation orientation, in
         if (section % 2 == 0)
             return "Filename";
         else
-            return "Directory";
+            return "Avg FPS";
     }
     else {
         return QString("%1").arg(section + 1);

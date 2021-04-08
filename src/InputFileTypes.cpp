@@ -16,19 +16,18 @@ InputFileTypesProcessor::~InputFileTypesProcessor() {
 InputFileTypesProcessor::inputSig InputFileTypesProcessor::parse(
     const std::string& fileName, 
     std::vector<Row>& rows, 
-    std::vector<std::shared_ptr<Frame>>& frames, 
-    Series& seriesFrameData) {
+    std::vector<std::shared_ptr<Frame>>& frames) {
 
     // Check for input file sigs
     if (FrapsParser::sigMatch(rows[0])) {
         std::unique_ptr<Parser> parser = std::make_unique<FrapsParser>();
         rows.erase(rows.begin());
-        if (parser->parseRows(fileName, rows, frames, seriesFrameData)) return parser->type();
+        if (parser->parseRows(fileName, rows, frames)) return parser->type();
     }
 
     else if (PresentMonParser::sigMatch(rows[0])) {
         std::unique_ptr<Parser> parser = std::make_unique<PresentMonParser>();
-        if (parser->parseRows(fileName, rows, frames, seriesFrameData)) return parser->type();
+        if (parser->parseRows(fileName, rows, frames)) return parser->type();
     }
 
     return InputFileTypesProcessor::Error;

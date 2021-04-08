@@ -29,6 +29,12 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>800</width>
+           <height>0</height>
+          </size>
+         </property>
         </widget>
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
@@ -38,7 +44,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>0</height>
+            <height>800</height>
            </size>
           </property>
           <property name="frameShape">

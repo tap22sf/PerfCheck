@@ -40,15 +40,20 @@ bool DataModel::loadData(const std::string fileName) {
     fname = QString(fileName.c_str());
 
     // Parse
-    std::vector<Row> data = parser.parse(fileName, 1000000);
+    std::vector<Row> data = parser.parse(fileName);
 
     // Create a new series view
     seriesFrameData.setName("line1");
-    seriesFrameData.setColor("white");
+    seriesFrameData.setColor("cyan");
 
     // Find the input file the signature
-    InputFileTypesProcessor::inputSig sig = processor.parse(fileName, data, frameData, seriesFrameData);
+    InputFileTypesProcessor::inputSig sig = processor.parse(fileName, data, frameData);
     
+    // Update series data for plotting
+    dataOffset = frameData[0].get()->startTime;
+    for (auto& frame : frameData)
+        seriesFrameData << QPointF(frame->startTime - dataOffset, frame->frameDuration);
+
     calcStats();
     return true;
 }
